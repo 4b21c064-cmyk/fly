@@ -1,10 +1,12 @@
-const CACHE_NAME = 'zenflight-v4'; // 🛠️ 滿血迭代升級至 v4 法規！
+const CACHE_NAME ='zenflight-v6'; 
 const ASSETS = [
   'index.html',
+  'style.css',     
+  'control.js',    
   'manifest.json'
 ];
 
-// 安裝並快取網頁資源
+
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
