@@ -1,0 +1,49 @@
+* { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
+body { margin: 0; padding: 0; width: 100vw; height: 100vh; background-color: #121212; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; overflow: hidden; display: flex; flex-direction: column; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 4px 20px; background: #1e1e1e; border-bottom: 1px solid #333; }
+.logo { font-size: 10px; font-weight: bold; letter-spacing: 1px; }
+
+.btn-fullscreen { background-color: transparent; color: #888; border: 1px solid #444; padding: 6px 18px; border-radius: 20px; font-size: 8px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
+.btn-fullscreen:active { background-color: #2a2a2a; color: #fff; }
+
+.btn-connect { background-color: #00adb5; color: white; border: none; padding: 6px 24px; border-radius: 25px; font-size: 8px; cursor: pointer; font-weight: bold; transition: background 0.2s; }
+.btn-connect.connected { background-color: #ff2e63; }
+
+.telemetry { display: flex; justify-content: space-around; background: #181818; padding: 10px 0; font-size: 13px; border-bottom: 1px solid #222; }
+.data-box span { color: #00adb5; font-weight: bold; }
+.control-container { flex: 1; display: flex; justify-content: space-around; align-items: center; padding: 20px; position: relative; }
+
+.joystick-zone { 
+    width: 120px; 
+    height: 120px; 
+    background: radial-gradient(circle, #252525 0%, #1a1a1a 100%); 
+    border-radius: 50%; 
+    position: relative; 
+    touch-action: none; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: inset 0 0 0 2px #444444, inset 0 0 15px rgba(0,0,0,0.5); 
+}
+
+.stick { 
+    width: 40px; 
+    height: 40px; 
+    background: linear-gradient(145deg, #333333, #222222); 
+    border-radius: 50%; 
+    position: absolute; 
+    cursor: pointer; 
+    /* 🛠️ 像素級優化：拔除實體 border，改用 inset 內陰影模擬框線，不佔用任何幾何體積 */
+    box-shadow: inset 0 0 0 2px #00adb5, 0 5px 10px rgba(0,0,0,0.4); 
+    transition: transform 0.05s linear; 
+    pointer-events: none; 
+}
+
+.joystick-label { position: absolute; bottom: -25px; font-size: 12px; color: #666; width: max-content; text-align: center; }
+
+footer { padding: 10px; background: #1e1e1e; display: flex; justify-content: center; border-top: 1px solid #333; }
+.btn-arm { width: 90%; max-width: 400px; background-color: #333; color: #888; border: 2px solid #444; padding: 8px; border-radius: 12px; font-size: 8px; font-weight: bold; letter-spacing: 3px; cursor: pointer; text-align: center; }
+.btn-arm.ready { background-color: #ff5722; color: white; border-color: #ff5722; box-shadow: 0 0 10px rgba(255,87,34,0.5); }
+
+#orientation-warning { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #121212; z-index: 9999; justify-content: center; align-items: center; }
+@media (orientation: portrait) { #orientation-warning { display: flex; } }
